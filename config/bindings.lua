@@ -9,7 +9,7 @@ if platform.is_mac then
 	mod.SUPER = 'SUPER'
 	mod.SUPER_REV = 'SUPER|CTRL'
 elseif platform.is_win or platform.is_linux then
-	mod.SUPER = 'ALT'  -- to not conflict with Windows key shortcuts
+	mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
 	mod.SUPER_REV = 'ALT|CTRL'
 end
 
@@ -17,7 +17,7 @@ end
 local keys = {
 	-- misc/useful --
 	{ key = 'F1', mods = 'NONE', action = 'ActivateCopyMode' },
-	{ key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
+	{ key = 'F2', mods = mod.SUPER, action = act.ActivateCommandPalette },
 	{ key = 'F3', mods = 'NONE', action = act.ShowLauncher },
 	{ key = 'F4', mods = 'NONE', action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
 	{
@@ -207,4 +207,5 @@ return {
 	keys = keys,
 	key_tables = key_tables,
 	mouse_bindings = mouse_bindings,
+	bypass_mouse_reporting_modifiers = 'SHIFT',
 }
